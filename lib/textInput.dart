@@ -14,6 +14,7 @@ class input extends State<textInput>{
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
         child: TextField(
           decoration: InputDecoration(
+            border: OutlineInputBorder(),
             hintText: "Place"
           ),
         ),

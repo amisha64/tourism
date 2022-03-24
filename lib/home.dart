@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'textInput.dart';
+import 'explore.dart';
+import 'secondscreen.dart';
 
 class homescreen extends StatelessWidget{
   @override
@@ -27,10 +29,21 @@ class homescreen extends StatelessWidget{
             ListTile(
               title: Text("Home"),
               trailing:  Icon(Icons.arrow_forward),
+              onTap: (){
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => homescreen()
+                ));
+              },
             ),
             ListTile(
               title: Text("Explore"),
               trailing:  Icon(Icons.arrow_forward),
+              onTap: (){
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Explore()));
+              },
             ),
           ],
         ),
@@ -40,6 +53,14 @@ class homescreen extends StatelessWidget{
           children: [
             Image.asset('assets/images/homeimg.jpg', alignment: Alignment.center),
             textInput(),
+            ElevatedButton(
+                child: Text("Explore"),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Secondscreen(),)
+                  );
+                },
+            ),
           ]
         ),
       ),
